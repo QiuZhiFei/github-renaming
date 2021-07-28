@@ -58,7 +58,7 @@ module Github
 
       # local
       if new_branch == "main"
-        global_default_branch = `git config --global init.defaultBranch`
+        global_default_branch = `git config --global init.defaultBranch`.strip
         if global_default_branch != new_branch
           `git config --global init.defaultBranch #{new_branch}`
           logger.debug "Setting #{new_branch} as global default branch."
